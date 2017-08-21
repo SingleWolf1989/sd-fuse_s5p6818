@@ -21,7 +21,7 @@
 # base setup
 
 BASE_URL=http://112.124.9.243/dvdfiles
-OPT_URL=http://wiki.friendlyarm.com/nanopct3/download/
+OPT_URL=http://wiki.friendlyarm.com/download
 BOARD=S5P6818/images-for-eflasher
 
 TARGET=${1,,}
@@ -107,6 +107,6 @@ fi
 mkdir -p ${TARGET}
 
 if [ -f ${ROMFILE} ]; then
-	FA_DoExec tar xzvf ${ROMFILE} -C ${TARGET} || exit 1
+	FA_DoExec tar xzvf ${ROMFILE} -C ${TARGET} --strip-components=1 || exit 1
 fi
 
